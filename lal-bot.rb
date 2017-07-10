@@ -4,5 +4,10 @@ end
 
 Mongoid.load! File.expand_path('../config/mongoid.yml', __FILE__), ENV['RACK_ENV']
 
-require 'src/api'
-require 'src/app'
+#get the token
+ENV['SLACK_API_TOKEN'] = $slack_token
+
+require 'lal-bot/api'
+require 'lal-bot/app'
+require 'lal-bot/server'
+require 'lal-bot/service'
