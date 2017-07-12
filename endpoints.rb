@@ -2,6 +2,7 @@ require 'sinatra'
 require 'json'
 
 post '/api/interactions' do
+  puts "HEYY"
   "Hello World"
 end
 
@@ -15,6 +16,7 @@ end
 
 post '/api/lal' do
   puts 'hey'
+  puts "LOGGING"
   puts request.body.read.to_s
   content_type :json
   {
