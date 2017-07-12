@@ -15,9 +15,7 @@ get '/api' do
 end
 
 post '/api/lal' do
-  puts 'hey'
-  puts "LOGGING"
-  puts request.body.read.to_s
+  puts params.inspect
   content_type :json
   {
     "attachments": [
