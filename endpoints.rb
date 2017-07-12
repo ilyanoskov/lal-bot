@@ -11,3 +11,8 @@ end
 get '/api' do
   "HI"
 end
+
+post '/api/lal' do
+  puts request.body
+  "thanks"
+end
