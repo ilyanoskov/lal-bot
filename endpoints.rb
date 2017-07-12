@@ -7,3 +7,7 @@ end
 post '/api/options' do
   "Hello World"
 end
+
+get '/api' do
+  "HI"
+end
