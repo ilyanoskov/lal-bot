@@ -14,13 +14,12 @@ get '/api' do
 end
 
 post '/api/lal' do
-  puts request.body
+  puts request
   content_type :json
   {
-    "text": "What do you want to do?",
     "attachments": [
         {
-            "text": "Choose a game to play",
+            "text": "What do you want to do?",
             "fallback": "You are unable to choose a game",
             "callback_id": "wopr_game",
             "color": "#3AA3E3",
