@@ -14,6 +14,7 @@ get '/api' do
 end
 
 post '/api/lal' do
+  puts 'hey'
   puts request.body.read.to_s
   content_type :json
   {
