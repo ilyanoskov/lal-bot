@@ -14,7 +14,7 @@ get '/api' do
 end
 
 post '/api/lal' do
-  puts request
+  puts request.body.read.to_s
   content_type :json
   {
     "attachments": [
