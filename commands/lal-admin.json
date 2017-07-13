@@ -1,0 +1,26 @@
+{
+  "attachments": [
+    {
+      "text": "Hey, I am a Lunch and Learn Bot! \n What do you want to do?",
+      "fallback": "There was an error :(",
+      "callback_id": "first_choice",
+      "color": "#3AA3E3",
+      "attachment_type": "default",
+      "actions": [
+        {
+          "name": "organize",
+          "text": "organize next event",
+          "type": "button",
+          "value": "event"
+        },
+        {
+          "name": "help",
+          "text": "help",
+          "style": "info",
+          "type": "button",
+          "value": "help"
+        }
+      ]
+    }
+  ]
+}
