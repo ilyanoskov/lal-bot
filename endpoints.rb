@@ -9,8 +9,6 @@ require './db/objects/user'
 #We are going to use mongo with the endpoints, of course
 Mongoid.load!('./db/mongoid.yml')
 
-
-
 class API < Sinatra::Base
   configure :production, :development do
     enable :logging
