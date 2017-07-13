@@ -1,13 +1,20 @@
-require 'sinatra/base'
+require 'sinatra'
 require './commands/lal'
 #this class contains all endpoints and passes the processing onto
 #respective functions
 
+
 class API < Sinatra::Base
+
+  configure :production, :development do
+     enable :logging
+   end
+
 
   #Events API
   post '/api/events' do
-    params.challenge
+    logger.info(params.inspect)
+    "hey"
   end
   
   #interactive messages and menus
