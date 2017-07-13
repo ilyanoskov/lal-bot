@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'json'
 gem 'sinatra'
 gem 'slack-ruby-client'
-gem 'mongo'
+gem 'mongoid'
 
 
 group :dev do

@@ -1,12 +1,14 @@
 require 'sinatra'
 require './commands/lal'
+require 'mongoid'
 
 #this class contains all endpoints and passes the processing onto
 #respective functions
 
+#We are going to use mongo with the endpoints, of course
+Mongoid.load!('./db/mongoid.yml')
 
 class API < Sinatra::Base
-
   configure :production, :development do
     enable :logging
   end
@@ -27,7 +29,7 @@ class API < Sinatra::Base
     "options"
   end
 
-  #commands
+  #commands functionality
   post '/api/lal' do
     content_type :json
     logger.info(params.inspect)

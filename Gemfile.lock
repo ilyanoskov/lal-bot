@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    activemodel (5.1.2)
+      activesupport (= 5.1.2)
     activesupport (5.1.2)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (~> 0.7)
@@ -21,6 +23,9 @@ GEM
     minitest (5.10.2)
     mongo (2.4.2)
       bson (>= 4.2.1, < 5.0.0)
+    mongoid (6.2.0)
+      activemodel (~> 5.1)
+      mongo (>= 2.4.1, < 3.0.0)
     multipart-post (2.0.0)
     mustermann (1.0.0)
     pry (0.10.4)
@@ -57,7 +62,7 @@ PLATFORMS
 
 DEPENDENCIES
   json
-  mongo
+  mongoid
   pry
   sinatra
   slack-ruby-client

@@ -1,8 +1,6 @@
 require 'json'
-require 'mongo'
 
 class API < Sinatra::Base
-  @@db = Mongo::Client.new(ENV['MONGODB_URI'])
 
     def lal
       lal_admin
