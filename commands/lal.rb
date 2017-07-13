@@ -9,11 +9,11 @@ class API < Sinatra::Base
 
     def lal_admin
       admin_message = File.read('./commands/lal-admin.json')
-      admin_message.to_json
+      admin_message
     end
 
     def lal_user
       user_message = File.read('./commands/lal-user.json')
-      user_message.to_json
+      user_message
     end
 end
