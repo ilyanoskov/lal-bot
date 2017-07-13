@@ -7,9 +7,7 @@ class API < Sinatra::Base
 
   #Events API
   post '/api/events' do
-    puts 'HELLO'
-    puts params.inspect
-    "events"
+    params.challenge
   end
   
   #interactive messages and menus
