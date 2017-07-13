@@ -6,17 +6,15 @@ require './commands/lal'
 
 class API < Sinatra::Base
 
-  configure :production, :development do
+   configure :production, :development do
      enable :logging
    end
 
 
   #Events API
   post '/api/events' do
-    logger.info(params.inspect)
     payload = JSON.parse(request.body.read).symbolize_keys unless params[:path]
     payload[:challenge]
-
   end
   
   #interactive messages and menus
@@ -31,6 +29,7 @@ class API < Sinatra::Base
   # commands
   post '/api/lal' do
     content_type :json
+    logger.info(params.inspect)
     lal
   end
 end
