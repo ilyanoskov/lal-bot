@@ -1,8 +1,7 @@
-require 'rubygems'
-require 'bundler'
+require './bot'
+require './endpoints'
 
-Bundler.require
 $stdout.sync = true
 
-require File.join(File.dirname(__FILE__), 'endpoints.rb')
-run Sinatra::Application
+#initialize the app and create the API
+run Rack::Cascade.new [API, Auth]

@@ -1,58 +1,29 @@
-require 'sinatra'
-require 'json'
+require 'sinatra/base'
+require './commands/lal'
+#this class contains all endpoints and passes the processing onto
+#respective functions
 
-post '/api/interactions' do
-  puts "HEYY"
-  "Hello World"
+class API < Sinatra::Base
+
+  #Events API
+  post '/api/events' do
+    puts params.inspect
+    "events"
+  end
+  
+  #interactive messages and menus
+  post '/api/interactions' do
+    "interactions"
+  end
+
+  post '/api/options' do
+    "options"
+  end
+
+  # commands
+  post '/api/lal' do
+    content_type :json
+    lal
+  end
 end
 
-post '/api/options' do
-  "Hello World"
-end
-
-get '/api' do
-  "HI"
-end
-
-post '/api/lal' do
-  puts params.inspect
-  content_type :json
-  {
-    "attachments": [
-        {
-            "text": "What do you want to do?",
-            "fallback": "You are unable to choose a game",
-            "callback_id": "wopr_game",
-            "color": "#3AA3E3",
-            "attachment_type": "default",
-            "actions": [
-                {
-                    "name": "game",
-                    "text": "Chess",
-                    "type": "button",
-                    "value": "chess"
-                },
-                {
-                    "name": "game",
-                    "text": "Falken's Maze",
-                    "type": "button",
-                    "value": "maze"
-                },
-                {
-                    "name": "game",
-                    "text": "Thermonuclear War",
-                    "style": "danger",
-                    "type": "button",
-                    "value": "war",
-                    "confirm": {
-                        "title": "Are you sure?",
-                        "text": "Wouldn't you prefer a good game of chess?",
-                        "ok_text": "Yes",
-                        "dismiss_text": "No"
-                    }
-                }
-            ]
-        }
-    ]
-  }.to_json
-end
