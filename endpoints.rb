@@ -14,7 +14,7 @@ class API < Sinatra::Base
   #Events API
   post '/api/events' do
     logger.info(params.inspect)
-    params.challenge
+    request.body.challenge
   end
   
   #interactive messages and menus
