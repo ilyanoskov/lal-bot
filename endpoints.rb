@@ -15,7 +15,7 @@ class API < Sinatra::Base
   post '/api/events' do
     logger.info(params.inspect)
     payload = JSON.parse(request.body.read).symbolize_keys unless params[:path]
-    payload.challenge
+    payload[:challenge]
 
   end
   
