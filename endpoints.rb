@@ -7,6 +7,7 @@ class API < Sinatra::Base
 
   #Events API
   post '/api/events' do
+    puts 'HELLO'
     puts params.inspect
     "events"
   end
