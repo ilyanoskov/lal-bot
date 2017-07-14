@@ -1,6 +1,8 @@
 require 'sinatra'
-require './commands/lal'
 require 'mongoid'
+
+require './commands/lal'
+
 #this class contains all endpoints and passes the processing onto
 #respective functions
 
@@ -30,10 +32,12 @@ class API < Sinatra::Base
   end
 
   #commands functionality
+
   post '/api/lal' do
     content_type :json
     logger.info(params.inspect)
-    lal
+    lal(params)
   end
+
 end
 

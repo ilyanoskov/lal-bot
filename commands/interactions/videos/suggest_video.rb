@@ -1,5 +1,4 @@
-require './db/objects/video'
-require 'video_info'
+
 
 class API < Sinatra::Base
     def accept_suggestion(url)
