@@ -4,54 +4,62 @@ require 'mongoid'
 require './db/objects/video'
 
 class API < Sinatra::Base
-    def lal(params)
-      t = params[:text]
-      t.strip! if t
+  def lal(params)
+    t = params[:text]
+    t.strip! if t
 
-    case t 
-      when /^(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?([\w-]{10,})/ 
-        # accept video suggestion
-        return accept_video_suggestion(t)
-      when /^(http\:\/\/|https\:\/\/)?(www\.)?(vimeo\.com\/)([0-9]+)$/
-        # accept video suggestion
-        accept_video_suggestion(t)
-      when "poll"
-        # start video polls
-        poll
-      when "videos"
-        #show videos
-      when nil || ""
-        lal_menu
-      else
-        # no such command
+    case t
+    when /^(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?([\w-]{10,})/
+      # accept video suggestion
+      return accept_video_suggestion(t)
+    when /^(http\:\/\/|https\:\/\/)?(www\.)?(vimeo\.com\/)([0-9]+)$/
+      # accept video suggestion
+      accept_video_suggestion(t)
+    when 'poll'
+      # start video polls
+      poll
+    when 'videos'
+    # show videos
+    when 'help'
+    # show help
+    when nil || ''
+      lal_menu
       end
-    end
+  end
 
-    def lal_menu
+  def lal_menu
     l = File.read('./commands/lal-user.json')
     l
+end
+
+  def poll
+    { hey: 'hey' }.to_json
   end
-  
-    def poll
-      {hey:"hey"}.to_json
-    end
 
-    def lal_admin
-      admin_message = File.read('./commands/lal-admin.json')
-      admin_message
-    end
+  def lal_admin
+    admin_message = File.read('./commands/lal-admin.json')
+    admin_message
+  end
 
-    def lal_user
-      user_message = File.read('./commands/lal-user.json')
-      user_message
-    end
+  def lal_user
+    user_message = File.read('./commands/lal-user.json')
+    user_message
+  end
 
-    def accept_video_suggestion(url)
-
-      Video.create(
-          title: "title",
-          description: "description"
-      )
-        {text: "Your video suggestion has been accepted!"}.to_json
-    end
+  def accept_video_suggestion(url)
+    video = VideoInfo.new(url)
+    Video.create(
+      title: video.title,
+      description: video.description
+    )
+    { text: 'Your video suggestion has been accepted!',
+      attachments: [
+        {
+          text: video.title
+        },
+        {
+          text: video.description
+        }
+      ] }.to_json
+  end
 end

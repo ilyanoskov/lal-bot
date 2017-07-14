@@ -31,13 +31,6 @@
         "style": "default",
         "type": "button",
         "value": "videos"
-      },
-      {
-        "name": "help",
-        "text": "help",
-        "style": "info",
-        "type": "button",
-        "value": "help"
       }
     ]
   }]}
