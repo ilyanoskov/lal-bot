@@ -9,7 +9,7 @@ class API < Sinatra::Base
       when t.match(/^(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?([\w-]{10,})/)
         # accept video suggestion
         accept_video_suggestion(t)
-      when t.match(match(/^(http\:\/\/|https\:\/\/)?(www\.)?(vimeo\.com\/)([0-9]+)$/))
+      when t.match(/^(http\:\/\/|https\:\/\/)?(www\.)?(vimeo\.com\/)([0-9]+)$/)
         # accept video suggestion
         accept_video_suggestion(t)
       when (t.strip == "poll")
