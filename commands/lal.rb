@@ -56,6 +56,7 @@ end
       attachments: [
         {
           title: video.title,
+          title_link: url,
           text: video.description,
           image_url: video.thumbnail_medium
         }
