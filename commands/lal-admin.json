@@ -14,8 +14,14 @@
           "value": "event"
         },
         {
+          "name": "videos",
+          "text": "see all suggested videos",
+          "type": "button",
+          "value": "videos"
+        },
+        {
           "name": "help",
-          "text": "help",
+          "text": "see help",
           "style": "info",
           "type": "button",
           "value": "help"

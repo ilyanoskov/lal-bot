@@ -14,7 +14,6 @@ class API < Sinatra::Base
     enable :logging
   end
 
-
   #Events API
   post '/api/events' do
     payload = JSON.parse(request.body.read).symbolize_keys unless params[:path]
@@ -23,6 +22,7 @@ class API < Sinatra::Base
   
   #interactive messages
   post '/api/interactions' do
+    logger.info(params.inspect)
     "interactions"
   end
   
