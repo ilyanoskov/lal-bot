@@ -1,26 +1,44 @@
-  "attachments": [
-    {
-      "text": "Hey, I am a Lunch and Learn Bot! \n What do you want to do?",
-      "fallback": "There was an error :( Try again!",
-      "callback_id": "lal_user",
-      "color": "#3AA3E3",
-      "attachment_type": "default",
-      "actions": [
-        {
-          "name": "help",
-          "text": "help",
-          "style": "info",
-          "type": "button",
-          "value": "help"
-        },
-        {
-          "name": "organize",
-          "text": "I want to be an organizer",
-          "style": "default",
-          "type": "button",
-          "value": "organize"
-        }
-      ]
-    }
-  ]
-}
+ { "attachments": [{
+    "text": "Hey, I am a Lunch and Learn Bot! \n What do you want to do?",
+    "fallback": "There was an error :( Try again!",
+    "callback_id": "lal_user",
+    "color": "#3AA3E3",
+    "attachment_type": "default",
+    "actions": [{
+        "name": "poll",
+        "text": "start a poll",
+        "style": "default",
+        "type": "button",
+        "value": "poll"
+      },
+      {
+        "name": "schedule",
+        "text": "schedule next event",
+        "style": "default",
+        "type": "button",
+        "value": "schedule"
+      },
+      {
+        "name": "organizer",
+        "text": "I will order food",
+        "style": "default",
+        "type": "button",
+        "value": "organizer"
+      },
+      {
+        "name": "videos",
+        "text":  "see the videos",
+        "style": "default",
+        "type": "button",
+        "value": "videos"
+      },
+      {
+        "name": "help",
+        "text": "help",
+        "style": "info",
+        "type": "button",
+        "value": "help"
+      }
+    ]
+  }]}
+  

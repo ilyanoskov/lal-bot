@@ -34,8 +34,8 @@ class API < Sinatra::Base
   #commands functionality
 
   post '/api/lal' do
-    content_type :json
     logger.info(params.inspect)
+    content_type :json
     lal(params)
   end
 

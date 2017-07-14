@@ -1,26 +1,39 @@
 require 'json'
-require './db/objects/video'
 require 'video_info'
+require 'mongoid'
+require './db/objects/video'
 
 class API < Sinatra::Base
     def lal(params)
       t = params[:text]
+      t.strip! if t
+
     case t 
-      when t.match(/^(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?([\w-]{10,})/)
+      when /^(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?([\w-]{10,})/ 
+        # accept video suggestion
+        return accept_video_suggestion(t)
+      when /^(http\:\/\/|https\:\/\/)?(www\.)?(vimeo\.com\/)([0-9]+)$/
         # accept video suggestion
         accept_video_suggestion(t)
-      when t.match(/^(http\:\/\/|https\:\/\/)?(www\.)?(vimeo\.com\/)([0-9]+)$/)
-        # accept video suggestion
-        accept_video_suggestion(t)
-      when (t.strip == "poll")
+      when "poll"
         # start video polls
+        poll
+      when "videos"
+        #show videos
+      when nil
+        lal_menu
       else
-      # menu for admin or non-admin user
+        # no such command
       end
     end
 
     def lal_menu
-
+    l = File.read('./commands/lal-user.json')
+    l
+  end
+  
+    def poll
+      {hey:"hey"}.to_json
     end
 
     def lal_admin
@@ -33,16 +46,12 @@ class API < Sinatra::Base
       user_message
     end
 
-    private 
     def accept_video_suggestion(url)
-        video = VideoInfo.new(url)
-        Video.create({
-          title: video.title,
-          votes: 0,
-          description: video.description,
-          watched: false
-        })
 
+      Video.create(
+          title: "title",
+          description: "description"
+      )
         {text: "Your video suggestion has been accepted!"}.to_json
     end
 end
