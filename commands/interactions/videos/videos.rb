@@ -5,6 +5,5 @@ class API < Sinatra::Base
         Video.where(watched: false).each do |vid|
             logger.info(vid)
         end
-        videos
     end
 end
