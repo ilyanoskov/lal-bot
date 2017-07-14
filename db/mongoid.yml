@@ -2,5 +2,12 @@ development:
   clients:
     default:
       uri: <%= ENV['MONGODB_URL'] %>
-  options: #strictly 2 spaces before
-    raise_not_found_error: false
+      options: #strictly 2 spaces before
+        raise_not_found_error: false
+
+production:
+  clients:
+    default:
+      uri: <%= ENV['MONGODB_URL'] %>
+      options: #strictly 2 spaces before
+        raise_not_found_error: false
