@@ -20,7 +20,7 @@ class API < Sinatra::Base
         poll
       when "videos"
         #show videos
-      when nil
+      when nil || ""
         lal_menu
       else
         # no such command
