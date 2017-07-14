@@ -55,10 +55,9 @@ end
     { text: 'Your video suggestion has been accepted!',
       attachments: [
         {
-          text: video.title
-        },
-        {
-          text: video.description
+          title: video.title,
+          text: video.description,
+          image_url: video.thumbnail_medium
         }
       ] }.to_json
   end
