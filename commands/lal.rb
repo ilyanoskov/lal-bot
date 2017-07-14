@@ -2,12 +2,7 @@ require 'json'
 require 'mongo'
 
 class API < Sinatra::Base
-<<<<<<< HEAD
-  @@db = Mongo::Client.new(ENV['MONGODB_URI'])
-=======
->>>>>>> interactions
-
-    def lal
+   def lal
       lal_admin
       #check if user is admin
       # all lal-admin or lal-user respectively

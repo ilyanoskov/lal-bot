@@ -14,10 +14,6 @@
           "value": "event"
         },
         {
-<<<<<<< HEAD
-          "name": "help",
-          "text": "help",
-=======
           "name": "videos",
           "text": "see all suggested videos",
           "type": "button",
@@ -26,7 +22,6 @@
         {
           "name": "help",
           "text": "see help",
->>>>>>> interactions
           "style": "info",
           "type": "button",
           "value": "help"
