@@ -4,7 +4,7 @@ require 'video_info'
 
 class API < Sinatra::Base
     def lal(params)
-      t = params.text
+      t = params[:text]
     case t 
       when t.match(/^(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?([\w-]{10,})/)
         # accept video suggestion
