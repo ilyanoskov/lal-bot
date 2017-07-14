@@ -2,6 +2,7 @@ require 'json'
 require 'video_info'
 require 'mongoid'
 require './db/objects/video'
+require './commands/interactions/videos/videos'
 
 class API < Sinatra::Base
   def lal(params)
@@ -19,7 +20,7 @@ class API < Sinatra::Base
       # start video polls
       poll
     when 'videos'
-    # show videos
+      get_unwatched_videos
     when 'help'
     # show help
     when nil || ''
@@ -50,16 +51,11 @@ end
     video = VideoInfo.new(url)
     Video.create(
       title: video.title,
-      description: video.description
+      description: video.description,
+      url: url,
+      thumbnail: video.thumbnail_small
     )
-    { text: 'Your video suggestion has been accepted!',
-      attachments: [
-        {
-          title: video.title,
-          title_link: url,
-          text: video.description,
-          image_url: video.thumbnail_medium
-        }
-      ] }.to_json
+
+    { text: 'Your video suggestion has been accepted!' }.to_json
   end
 end
