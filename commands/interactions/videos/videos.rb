@@ -5,15 +5,18 @@ class API < Sinatra::Base
         response = {attachments: [
             {text: "Here are the videos I've got in the archives!"}
         ]}
+
+        i = 1
         Video.where(watched: false).each do |vid|
             logger.info(vid)
             response[:attachments].push(
            {
-               title: vid.title,
+               title: "#{i}. " + vid.title,
                text: vid.description,
                title_link: vid.url,
                image_url: vid.thumbnail
            })
+           i += 1
         end
         response.to_json
     end
