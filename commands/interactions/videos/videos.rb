@@ -12,7 +12,7 @@ class API < Sinatra::Base
                title: vid.title,
                text: vid.description,
                title_link: vid.url,
-               image_url: vid.thumbnail_small
+               image_url: vid.thumbnail
            })
         end
         response.to_json
