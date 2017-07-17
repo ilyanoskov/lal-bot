@@ -7,7 +7,7 @@ class API < Sinatra::Base
         ]}
         Video.where(watched: false).each do |vid|
             logger.info(vid)
-            response[:attachments].push({text: video.title})
+            response[:attachments].push({text: vid.title})
         end
         response.to_json
     end
