@@ -49,13 +49,22 @@ end
 
   def accept_video_suggestion(url)
     video = VideoInfo.new(url)
-    Video.create(
+    details = {  
       title: video.title,
       description: video.description,
       url: url,
       thumbnail: video.thumbnail_small
-    )
-
+    }
+    
+   if Video.where(details).exists?
+      Video.update(details)
+    else
+      Video.create(details)
+    end
+    
     { text: 'Your video suggestion has been accepted!' }.to_json
+  rescue
+    { text: 'there was an error, try again' }.to_json
   end
 end
+
