@@ -3,7 +3,10 @@ require './db/objects/video.rb'
 class API < Sinatra::Base
     def get_unwatched_videos
         response = {attachments: [
-            {text: "Here are the videos I've got in the archives!"}
+            {
+                text: "Here are the videos I've got in the archives!",
+                color: "%06x" % (rand * 0xffffff)
+        }
         ]}
 
         i = 1
