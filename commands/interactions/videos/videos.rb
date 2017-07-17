@@ -14,7 +14,8 @@ class API < Sinatra::Base
                title: "#{i}. " + vid.title,
                text: vid.description,
                title_link: vid.url,
-               image_url: vid.thumbnail
+               image_url: vid.thumbnail,
+               color: "%06x" % (rand * 0xffffff)
            })
            i += 1
         end
